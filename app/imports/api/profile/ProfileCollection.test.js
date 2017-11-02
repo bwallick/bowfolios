@@ -18,10 +18,11 @@ if (Meteor.isServer) {
     const interests = [interestName];
     const picture = 'http://philipmjohnson.org/headshot.jpg';
     const title = 'Professor Computer Science';
+    const location = 'Honolulu';
     const github = 'http://github.com/philipjohnson';
     const facebook = 'http://github.com/philipjohnson';
     const instagram = 'http://github.com/philipjohnson';
-    const defineObject = { firstName, lastName, username, bio, interests, picture, title, github, facebook, instagram };
+    const defineObject = { firstName, lastName, username, bio, interests, picture, title, location, github, facebook, instagram };
 
     before(function setup() {
       removeAllEntities();
@@ -32,7 +33,7 @@ if (Meteor.isServer) {
     after(function teardown() {
       removeAllEntities();
     });
-
+x
     it('#define, #isDefined, #removeIt, #dumpOne, #restoreOne', function test() {
       let docID = Profiles.define(defineObject);
       expect(Profiles.isDefined(docID)).to.be.true;
@@ -45,6 +46,7 @@ if (Meteor.isServer) {
       expect(doc.interests[0]).to.equal(interestName);
       expect(doc.picture).to.equal(picture);
       expect(doc.title).to.equal(title);
+      expect(doc.location).to.equal(title);
       expect(doc.github).to.equal(github);
       expect(doc.facebook).to.equal(facebook);
       expect(doc.instagram).to.equal(instagram);
